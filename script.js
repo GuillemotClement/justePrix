@@ -22,6 +22,7 @@ function verifier(nombre){
      } else {
         instruction.textContent = "# " + coups + " ( " + nombre + " ) C'est gagné !";
         instruction.className = 'instruction fini';
+        input.disabled = true;
      }
 
      //Ajouter élément devant les autres
