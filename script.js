@@ -8,6 +8,25 @@ error.style.display = "none";
 let nbAleatoire = Math.floor(Math.random() * 1001);
 let coups       = 0;
 let nbChoisi;
+
+//FONCTION VERIF
+function verifier(nombre){
+     let instruction = document.createElement('div');
+     
+     if(nombre < nbAleatoire){
+        instruction.textContent = "# " + coups + " ( " + nombre + " ) C'est plus !";
+        instruction.className = 'instruction plus';
+     } else if(nombre > nbAleatoire){
+        instruction.textContent = "# " + coups + " ( " + nombre + " ) C'est moins !";
+        instruction.className = 'instruction moins';
+     } else {
+        instruction.textContent = "# " + coups + " ( " + nombre + " ) C'est gagné !";
+        instruction.className = 'instruction fini';
+     }
+
+     //Ajouter élément devant les autres
+     document.querySelector('#instructions').prepend(instruction);
+}
 // Etape 4 - Vérifier que l'utilisateur donne bien un nombre
  input.addEventListener('keyup', () => {
     if(isNaN(input.value)){
